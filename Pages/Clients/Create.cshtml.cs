@@ -1,44 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using EntityEditor.Data;
 using EntityEditor.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EntityEditor.Pages.Clients
 {
     public class CreateModel : PageModel
     {
-        private readonly EntityEditor.Data.EntityEditorContext _context;
-
-        public CreateModel(EntityEditor.Data.EntityEditorContext context)
-        {
-            _context = context;
-        }
-
-        public IActionResult OnGet()
-        {
-            return Page();
-        }
+        private readonly EntityEditorContext _context;
+        public CreateModel(EntityEditorContext context) => _context = context;
 
         [BindProperty]
-        public Client Client { get; set; }
+        public ClientInput Client { get; set; } = new ClientInput();
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        public IActionResult OnGet() => Page();
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
-            {
                 return Page();
-            }
 
-            _context.Clients.Add(Client);
+            var now = DateTime.UtcNow;
+            _context.Clients.Add(new Client
+            {
+                Name = Client.Name.Trim(),
+                IndividualTaxNumber = Client.IndividualTaxNumber,
+                OrganizationType = Client.OrganizationType,
+                CreationDate = now,
+                UpdateDate = now
+            });
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }

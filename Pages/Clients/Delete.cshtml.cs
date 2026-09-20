@@ -45,10 +45,12 @@ namespace EntityEditor.Pages.Clients
                 return NotFound();
             }
 
-            Client = await _context.Clients.FindAsync(id);
+            Client = await _context.Clients.Include(c => c.Founders)
+                .SingleOrDefaultAsync(c => c.ID == id);
 
             if (Client != null)
             {
+                _context.Founders.RemoveRange(Client.Founders);
                 _context.Clients.Remove(Client);
                 await _context.SaveChangesAsync();
             }

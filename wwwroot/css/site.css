@@ -1,71 +1,50 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+/* Local styles: this small CRUD application needs no frontend framework. */
+* { box-sizing: border-box; }
+html { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #212529; line-height: 1.5; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: #fff; }
+.container { width: min(100% - 2rem, 1140px); margin-inline: auto; }
+header { border-bottom: 1px solid #dee2e6; margin-bottom: 1.5rem; }
+.navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; padding-block: 1rem; }
+.brand { color: #212529; font-size: 1.25rem; text-decoration: none; margin-right: auto; }
+main { flex: 1; padding-bottom: 2rem; overflow-wrap: anywhere; }
+footer { border-top: 1px solid #dee2e6; color: #595f64; padding-block: 1rem; }
+a { color: #075aa8; }
+a:hover { color: #003d75; }
+h1, h3, h4 { line-height: 1.2; font-weight: 500; margin: 0 0 1rem; }
+h1 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+hr { border: 0; border-top: 1px solid #dee2e6; margin-block: 1rem; }
+p { margin: 0 0 1rem; }
+.row { display: flex; flex-wrap: wrap; gap: 0 1rem; }
+.col-md-4 { width: 100%; max-width: 32rem; }
+.col { flex: 1; }
+.form-group { margin-bottom: 1rem; }
+label { display: inline-block; margin-bottom: .4rem; }
+.form-control { display: block; width: 100%; padding: .5rem .75rem; border: 1px solid #767d84; border-radius: .25rem; background: #fff; color: inherit; font: inherit; }
+:focus-visible { outline: 3px solid #075aa8; outline-offset: 3px; }
+.btn { display: inline-block; padding: .5rem 1rem; border: 1px solid transparent; border-radius: .25rem; font: inherit; cursor: pointer; text-decoration: none; }
+.btn-primary { background: #1b6ec2; color: #fff; }
+.btn-danger { background: #b52332; color: #fff; }
+.btn:hover { filter: brightness(.9); }
+.text-danger, .field-validation-error { color: #b00020; }
+.input-validation-error { border-color: #b00020; }
+.validation-summary-valid, .field-validation-valid { display: none; }
+.table-scroll { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+.table th, .table td { padding: .75rem; text-align: left; vertical-align: top; border-bottom: 1px solid #dee2e6; }
+.table th { border-bottom: 2px solid #adb5bd; }
+.table td:last-child { min-width: 10rem; }
+dt { font-weight: 600; }
+dd { margin: 0 0 .75rem; }
+.col-sm-2 { width: 12rem; }
+.col-sm-10 { width: calc(100% - 13rem); }
+.border { border: 1px solid #dee2e6; }
+.p-4 { padding: 1.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+@media (max-width: 600px) {
+    h1 { font-size: 1.8rem; }
+    .navigation { gap: 1rem; }
+    .col-sm-2, .col-sm-10 { width: 100%; }
+    .table th, .table td { padding: .5rem; }
 }

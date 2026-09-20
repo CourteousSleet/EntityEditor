@@ -13,6 +13,6 @@ namespace EntityEditor.Models
         public DateTime UpdateDate { get; set; }
         public DateTime CreationDate { get; set; }
 
-        public Client Client;
+        public Client Client { get; set; }
     }
 }
